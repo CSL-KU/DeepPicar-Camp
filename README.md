@@ -8,7 +8,7 @@ DAVE-2 and can drive itself in real-time locally on a Raspberry Pi.
 
 ## Build instructions video
 
-https://www.youtube.com/embed/ZYj04fSd8X0?si=gnulWbk-IZapVlMX
+https://www.youtube.com/watch?v=ZYj04fSd8X0
 
 ## Setup
 
