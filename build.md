@@ -73,10 +73,10 @@ nav_order: 2
   </table>
 </div>
 - Additionally, you will need to 3D print these CAD models to mount the hardware to the car.  
-    - [Main hardware mount](https://github.com/Tyler-Oswald/DeepPiCarDocs/blob/main/models/Main_hardware_mount.stl)  
-    - [Thread plate](https://github.com/Tyler-Oswald/DeepPiCarDocs/blob/main/models/Threaded%20plate.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
-    - [Camera mount](https://github.com/Tyler-Oswald/DeepPiCarDocs/blob/main/models/Camera_mount.stl)  
-    - [Camera cover](https://github.com/Tyler-Oswald/DeepPiCarDocs/blob/main/models/Camera_cover.stl)  
+    - [Main hardware mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Main_hardware_mount.stl)  
+    - [Thread plate](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Threaded%20plate.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
+    - [Camera mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_mount.stl)  
+    - [Camera cover](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_cover.stl)  
 
 
 ## II. Construction
