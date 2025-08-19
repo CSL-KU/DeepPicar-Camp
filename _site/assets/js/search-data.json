@@ -1,0 +1,93 @@
+{"0": {
+    "doc": "Build",
+    "title": "Building your DeepPiCar",
+    "content": ". ",
+    "url": "/build.html#building-your-deeppicar",
+    
+    "relUrl": "/build.html#building-your-deeppicar"
+  },"1": {
+    "doc": "Build",
+    "title": "I. Bill of Materials",
+    "content": ". | For this project you will need the following materials | . | Component | Link | Price (USD) | . | Male to Female Jumper | Link | $7 | . | MicroSD Card (32 GB) | Link | $7 | . | New Bright 1:24 Scale RC Car | Link | $20 | . | Pololu DRV8835 Motor Driver | Link | $15 | . | Pololu Power Cable | Link | $2 | . | Power Bank | Link | $17 | . | Raspberry Pi Zero 2 W | Link | $25 | . | Raspberry Pi Zero Camera v1.3 | Link | $7 | . | USB Micro to USB | Link | $7 | . | Total | | $107 | . | Additionally, you will need to 3D print these CAD models to mount the hardware to the car. | Main hardware mount | Thread plate (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.) | Camera mount | Camera cover | . | . ",
+    "url": "/build.html#i-bill-of-materials",
+    
+    "relUrl": "/build.html#i-bill-of-materials"
+  },"2": {
+    "doc": "Build",
+    "title": "II. Construction",
+    "content": "Once you have gather all required materials, follow the build video below to assemble the car. ",
+    "url": "/build.html#ii-construction",
+    
+    "relUrl": "/build.html#ii-construction"
+  },"3": {
+    "doc": "Build",
+    "title": "III. Software Setup",
+    "content": "The DeepPicar repository is built and tested on the Raspberry Pi OS (Legacy) Bullseye. You can flash your Raspberry Pi Zero using the official Raspberry Pi Imager, available here. Install DeepPicar Repo . Clone the DeepPicar repository and install dependencies: . git clone --recurse-submodules --depth 1 https://github.com/CSL-KU/DeepPicar-v3 cd DeepPicar-v3 sudo apt update sudo apt install libatlas-base-dev sudo apt install libopenblas0 sudo apt-get install python3-opencv sudo pip3 install -r requirements.txt . Configure Drivers . Edit the params.py file to select the correct camera and actuator drivers. If you are using parts from the build list, you can skip this. camera = \"camera-webcam\" actuator = \"actuator-drv8835\" . Setup Driver for Pololu DRV8835 . To install the Python driver for the Pololu DRV8835 motor controller: . cd drv8835-motor-driver-rpi sudo python3 setup.py install . Setup Gamepad Support (Logitech F710) . If you’d like to use a gamepad for data collection, set up the inputs Python package: . cd inputs sudo pip3 install . ",
+    "url": "/build.html#iii-software-setup",
+    
+    "relUrl": "/build.html#iii-software-setup"
+  },"4": {
+    "doc": "Build",
+    "title": "IV. Test",
+    "content": "Login to your Pi . SSH into your Pi over local WIFI . Before you start driving your car, make sure to enable legacy camera support. $ sudo raspi-config . Navigate to interface options, select legacy camera, and click on yes. Start the control script . $ cd DeepPicar-v3 $ sudo nice --20 python3 deeppicar.py -n 4 -f 30 . Keyboard controls: A: move forward Z: move backward S: stop J: turn left K: center L: turn right R: start/stop recording D: turn on DNN . Use the keys to manually control the car. Once you become confident in controlling the car, collect the data to be used for training the DNN model. The data collection can be enabled and stopped by pressing R. Once recording is enabled, the video feed and the corresponding control inputs are stored in out-video.avi and out-key.csv files, respectively. Later, we will use these files for training. It can be downloaded using scp commands. Each recording attempt will overwrite the previous. Compress all the recorded files into a single zip file, say Dataset.zip for Colab. $ zip Dataset.zip out-* . ",
+    "url": "/build.html#iv-test",
+    
+    "relUrl": "/build.html#iv-test"
+  },"5": {
+    "doc": "Build",
+    "title": "Train the model",
+    "content": "Open the colab notebook. Following the notebook, you will upload the dataset to the colab, train the model, and download the model back to your PC. Open In Colab . After you are done training, you need to copy the trained tflite model file (large-200x66x3.tflite by default) to the Pi using scp commands. ",
+    "url": "/build.html#train-the-model",
+    
+    "relUrl": "/build.html#train-the-model"
+  },"6": {
+    "doc": "Build",
+    "title": "Autonomous control",
+    "content": "Copy the trained model to the DeepPicar. $ cd DeepPicar-v3 $ sudo nice --20 python3 deeppicar.py -n 4 -f 30 . Enable autonomous driving by pressing A to go forward then D to start the DNN. ",
+    "url": "/build.html#autonomous-control",
+    
+    "relUrl": "/build.html#autonomous-control"
+  },"7": {
+    "doc": "Build",
+    "title": "Build",
+    "content": " ",
+    "url": "/build.html",
+    
+    "relUrl": "/build.html"
+  },"8": {
+    "doc": "Gallery",
+    "title": "Gallery",
+    "content": ". ",
+    "url": "/gallery.html",
+    
+    "relUrl": "/gallery.html"
+  },"9": {
+    "doc": "Home",
+    "title": "What is DeepPiCar?",
+    "content": "DeepPicar is a low-cost autonomous RC car platform using a deep convolutional neural network (CNN). DeepPicar is a small scale replication of NVIDIA’s real self-driving car called DAVE-2, which drove on public roads using a CNN. DeepPicar uses the same CNN architecture of NVIDIA’s DAVE-2 and can drive itself in real-time locally on a Raspberry Pi. More information can be found on the project Github page and research paper. ",
+    "url": "/#what-is-deeppicar",
+    
+    "relUrl": "/#what-is-deeppicar"
+  },"10": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"11": {
+    "doc": "Troubleshooting",
+    "title": "Common Issues and Troubleshooting",
+    "content": "1. Raspberry Pi Won’t Boot . | Check power supply: Ensure your power adapter provides enough current (at least 2.5A for most models). | SD card issues: Re-flash the SD card with a fresh image. Make sure the card is properly inserted. | Loose connections: Double-check all cables and connectors. | . 2. Motors Not Responding . | Wiring: Verify all motor wires are connected to the correct pins on the motor driver and Raspberry Pi. | Power: Ensure the battery or power source for the motors is charged and connected. | . 3. Camera Not Detected . | Connection: Make sure the camera ribbon cable is fully inserted and oriented correctly. | Legacy support: Confirm that legacy camera support is enabled on the RPI | Test: Use raspistill -o test.jpg to check if the camera works. | . 4. Wi-Fi/Network Issues . | Credentials: Double-check your Wi-Fi SSID and password in the configuration. | Signal: Move closer to the router or use a Wi-Fi dongle with better reception. | IP Address: Use ifconfig or hostname -I to find the Pi’s IP address. | . 5. Software Installation Errors . | Dependencies: Run sudo apt update &amp;&amp; sudo apt upgrade before installing packages. | Python packages: Use pip3 install --user &lt;package&gt; to avoid permission issues. | Permissions: Use sudo only when necessary. | . 6. Car Not Driving Straight . | Calibration: Use the bais adjustment system on the bottom of the car | . If you encounter other issues, consult the DeepPiCar GitHub Issues page or relevant forums for assistance. ",
+    "url": "/trouble.html#common-issues-and-troubleshooting",
+    
+    "relUrl": "/trouble.html#common-issues-and-troubleshooting"
+  },"12": {
+    "doc": "Troubleshooting",
+    "title": "Troubleshooting",
+    "content": " ",
+    "url": "/trouble.html",
+    
+    "relUrl": "/trouble.html"
+  }
+}
