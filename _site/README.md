@@ -1,174 +1,88 @@
-# just-the-docs-template
+# DeepPicar
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+DeepPicar is a low-cost autonomous RC car platform using a deep
+convolutional neural network (CNN). DeepPicar is a small scale replication
+of [NVIDIA's real self-driving car called DAVE-2](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/), which drove on public
+roads using a CNN. DeepPicar uses the same CNN architecture of NVIDIA's
+DAVE-2 and can drive itself in real-time locally on a Raspberry Pi.
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+## Build instructions video
 
-More specifically, the created site:
+https://www.youtube.com/watch?v=ZYj04fSd8X0
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+## Setup
 
-To get started with creating a site, simply:
+Install DeepPicar.
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+    $ git clone --recurse-submodules --depth 1 https://github.com/CSL-KU/DeepPicar-v3
+    $ cd DeepPicar-v3 
+    $ sudo apt update
+    $ sudo apt install libatlas-base-dev
+    $ sudo apt install libopenblas0
+    $ sudo apt-get install python3-opencv
+    $ sudo pip3 install -r requirements.txt
+    
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+Edit `params.py` to select correct camera and actuator drivers. 
+The setting below represents the standard webcam and drv8835 configuration, for example. 
 
-After completing the creation of your new site on GitHub, update it as needed:
+    camera="camera-webcam"
+    actuator="actuator-drv8835"
+    
+In addition, you need to setup the necessary python drivers. For polulu drv8835, do following.
 
-## Replace the content of the template pages
+    $ cd drv8835-motor-driver-rpi
+    $ sudo python3 setup.py install
 
-Update the following files to your own content:
+Also install the python package "inputs" if you would like to to use Logitech F710 gamepad for data collection.
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+    $ cd inputs
+    $ sudo pip3 install .
+    
+## Manual control and Data collection
 
-## Changing the version of the theme and/or Jekyll
+To start the backend server
 
-Simply edit the relevant line(s) in the `Gemfile`.
+    $ sudo nice --20 python3 deeppicar.py -n 4 -f 30
 
-## Adding a plugin
+Keyboard controls  
+A: move forward   
+Z: move backward  
+S: stop  
+J: turn left  
+K: center  
+L: turn right   
+R: start/stop recording  
+D: turn on DNN  
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+Use the keys to manually control the car. Once you become confident in controlling the car, collect the data to be used for training the DNN model. 
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+The data collection can be enabled and stopped by pressing `R`. Once recording is enabled, the video feed and the corresponding control inputs are stored in `out-video.avi` and `out-key.csv` files, respectively. Later, we will use these files for training. It can be downloaded using scp commands.
 
-- Add the following to your site's `Gemfile`:
+Each recording attempt with overwrite the previous
 
-  ```ruby
-  gem "jekyll-default-layout"
-  ```
+Compress all the recorded files into a single zip file, say Dataset.zip for Colab.
 
-- And add the following to your site's `_config.yml`:
+    $ zip Dataset.zip out-*
+    updating: out-key.csv (deflated 81%)
+    updating: out-video.avi (deflated 3%)
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+## Train the model
+    
+Open the colab notebook. Following the notebook, you will upload the dataset to the colab, train the model, and download the model back to your PC. 
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+[Open In Colab](https://colab.research.google.com/drive/1sC2sLeO5HAbc5oXotxMGp0SUncoDP4AF?usp=sharing)
 
-## Publishing your site on GitHub Pages
+After you are done trainig, you need to copy the trained tflite model file (`large-200x66x3.tflite` by default) to the Pi using scp commands.
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
+## Autonomous control
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+Copy the trained model to the DeepPicar. 
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+Enable autonomous driving by pressing A to go foward then D.
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+## Driving Videos
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+[![DeepPicar Driving](http://img.youtube.com/vi/SrS5iQV2Pfo/0.jpg)](http://www.youtube.com/watch?v=SrS5iQV2Pfo "DeepPicar_Video")
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
-
-## Building and previewing your site locally
-
-Assuming [Jekyll] and [Bundler] are installed on your computer:
-
-1.  Change your working directory to the root directory of your site.
-
-2.  Run `bundle install`.
-
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
-
-    The built site is stored in the directory `_site`.
-
-## Publishing your built site on a different platform
-
-Just upload all the files in the directory `_site`.
-
-## Customization
-
-You're free to customize sites that you create with this template, however you like!
-
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
-
-## Hosting your docs from an existing project repo
-
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
-
-### Copy the template files
-
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
-
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
-
-### Modify the GitHub Actions workflow
-
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
-
-1.  Set the default `working-directory` param for the build job.
-
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
-
-2.  Set the `working-directory` param for the Setup Ruby step.
-
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
-
-3.  Set the path param for the Upload artifact step:
-
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/_site/
-    ```
-
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
-
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
-
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Jekyll]: https://jekyllrb.com
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+Some other examples of the DeepPicar driving can be found at: https://photos.app.goo.gl/q40QFieD5iI9yXU42
