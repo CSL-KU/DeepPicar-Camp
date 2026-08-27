@@ -166,12 +166,12 @@ nav_order: 2
 > ```
 > Navigate to interface options, select legacy camera, and click on yes.
 
-> ## Manual control and Data collection
+## Manual control and Data collection
 
 > Before running the driving script run this command:
-
+> ```
 >    $ sudo systemctl start pigpiod
-
+> ```
 > Ensure that you only start pigpiod once
 
 > ### Start the control script
@@ -225,9 +225,10 @@ nav_order: 2
 > ## Autonomous control
 > 
 > Copy the trained model to the DeepPicar. 
->
->    $ scp -r C:/Users/me/Downloads/large-200x66x3.tflite pi@pi-44.local:/home/pi/DeepPicar-v3/models
 > 
+> ```
+>    $ scp -r C:/Users/me/Downloads/large-200x66x3.tflite pi@pi-44.local:/home/pi/DeepPicar-v3/models
+> ```
 > 
 > ```
 > $ cd DeepPicar-v3
