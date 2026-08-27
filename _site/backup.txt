@@ -1,70 +1,80 @@
-# Building your DeepPiCar
+# Building your DeepPiCar 
 ----
 ## I. Bill of Materials
 - For this project you will need the following materials
 
 <div style="margin-left: 2em;">
   <table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Link</th>
-        <th>Price (USD)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Male to Female Jumper</strong></td>
-        <td><a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>MicroSD Card (32 GB)</strong></td>
-        <td><a href="https://www.amazon.com/dp/B07R8GVGN9/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>New Bright 1:24 Scale RC Car</strong></td>
-        <td><a href="https://www.walmart.com/ip/seort/5249297702">Link</a></td>
-        <td>$20</td>
-      </tr>
-      <tr>
-        <td><strong>Pololu DRV8835 Motor Driver</strong></td>
-        <td><a href="https://www.pololu.com/product/2753">Link</a></td>
-        <td>$15</td>
-      </tr>
-      <tr>
-        <td><strong>Pololu Power Cable</strong></td>
-        <td><a href="https://www.adafruit.com/product/4448">Link</a></td>
-        <td>$2</td>
-      </tr>
-      <tr>
-        <td><strong>Power Bank</strong></td>
-        <td><a href="https://www.amazon.com/INIU-Portable-High-Speed-Flashlight-Compatible/dp/B08MZG8TN8/">Link</a></td>
-        <td>$17</td>
-      </tr>
-      <tr>
-        <td><strong>Raspberry Pi Zero 2 W</strong></td>
-        <td><a href="https://www.amazon.com/Pi-Zero-WH-Quad-Core-Bluetooth/dp/B0DKKXS4RV/">Link</a></td>
-        <td>$25</td>
-      </tr>
-      <tr>
-        <td><strong>Raspberry Pi Zero Camera v1.3</strong></td>
-        <td><a href="https://www.amazon.com/Arducam-Megapixels-Sensor-OV5647-Raspberry/dp/B012V1HEP4/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>USB Micro to USB</strong></td>
-        <td><a href="https://www.amazon.com/Android-Compatible-Smartphones-Charging-Stations/dp/B095JZSHXQ/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>Total</strong></td>
-        <td></td>
-        <td><strong>$107</strong></td>
-      </tr>
-    </tbody>
-  </table>
+								<thead>
+									<tr>
+										<th>Component</th>
+										<th>Link</th>
+										<th>Price (USD)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>Male to Female Jumper</strong></td>
+										<td><a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/">Link</a></td>
+										<td>$7</td>
+									</tr>
+                                    <tr>
+										<td><strong>Female to Female Jumper</strong></td>
+										<td><a href="https://a.co/d/0fFAU4pG">Link</a></td>
+										<td>$4</td>
+									</tr>
+									<tr>
+										<td><strong>MicroSD Card (32 GB)</strong></td>
+										<td><a href="https://www.amazon.com/dp/B07R8GVGN9/">Link</a></td>
+										<td>$7</td>
+									</tr>
+									<tr>
+										<td><strong>1:28 Full-Proportional 4WD RC Drift Car</strong></td>
+										<td><a href="https://www.walmart.com/ip/1-28-Full-Proportional-4WD-RC-Drift-Car-LD2801with-130-Motor-LED-Lights-Proportional-Steering-Racing-Drift-Tires-20-30min-Battery-White-RC-Toy-Adults/18656268806?sid=766287ef-0fc4-4523-8a49-9afab143a47b">Link</a></td>
+										<td>$36</td>
+									</tr>
+									<tr>
+										<td><strong>Pololu DRV8835 Motor Driver</strong></td>
+										<td><a href="https://www.pololu.com/product/2753">Link</a></td>
+										<td>$15</td>
+									</tr>
+									<tr>
+										<td><strong>Pololu Power Cable</strong></td>
+										<td><a href="https://www.adafruit.com/product/4448">Link</a></td>
+										<td>$2</td>
+									</tr>
+									<tr>
+										<td><strong>Power Bank</strong></td>
+										<td><a href="https://www.walmart.com/ip/INIU-10000mAh-Power-Bank-Slimmest-15W-Portable-Charger-USB-C-in-Out-High-Speed-Charging-Battery-Pack-Compatible-with-iPhone-Samsung-Orange/1069567930?classType=VARIANT&athbdg=L1900&from=%2Fsearch&sid=6cbf919e-d290-476c-bbe9-e1fe69f5fbad">Link</a></td>
+										<td>$17</td>
+									</tr>
+									<tr>
+										<td><strong>Raspberry Pi Zero 2 W</strong></td>
+										<td><a href="https://www.microcenter.com/product/643085/raspberry-pi-zero-2-w">Link</a></td>
+										<td>$25</td>
+									</tr>
+									<tr>
+										<td><strong>Raspberry Pi Zero Camera v1.3</strong></td>
+										<td><a href="https://www.amazon.com/Arducam-Megapixels-Sensor-OV5647-Raspberry/dp/B012V1HEP4/">Link</a></td>
+										<td>$7</td>
+									</tr>
+									<tr>
+										<td><strong>USB Micro to USB</strong></td>
+										<td><a href="https://www.amazon.com/Android-Compatible-Smartphones-Charging-Stations/dp/B095JZSHXQ/">Link</a></td>
+										<td>$7</td>
+									</tr>
+                                    <tr>
+										<td><strong>Mini Breadboard</strong></td>
+										<td><a href="https://www.walmart.com/ip/Uxcell-6pcs-Mini-Breadboards-170-Tie-Point-Solderless-Breadboards-for-DIY-Electronics-kit/387198324?classType=REGULAR&from=%2Fsearch&sid=9d294529-828a-4e15-af70-be5ee501794e">Link</a></td>
+										<td>$11</td>
+									</tr>
+									<tr>
+										<td><strong>Total</strong></td>
+										<td></td>
+										<td><strong>$138</strong></td>
+									</tr>
+								</tbody>
+							</table>
 </div>
 - Additionally, you will need to 3D print these CAD models to mount the hardware to the car.  
     [Main hardware mount](https://github.com/Tyler-Oswald/DeepPiCarDocs/blob/main/models/Main_hardware_mount.stl)  
