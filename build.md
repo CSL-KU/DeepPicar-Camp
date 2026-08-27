@@ -83,10 +83,10 @@ nav_order: 2
 							</table>
 </div>
 - Additionally, you will need to 3D print these CAD models to mount the hardware to the car.  
-    - [Main hardware mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Main_hardware_mount.stl)  
-    - [Thread plate](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Threaded%20plate.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
-    - [Camera mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_mount.stl)  
-    - [Camera cover](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_cover.stl)  
+    - [Main hardware mount](https://github.com/wileyconnor/DeepPicar-Camp2026/blob/main/models/2026_summer_camp_mount.stl)  
+    - [Front Mount](https://github.com/wileyconnor/DeepPicar-Camp2026/blob/main/models/car_front_mount.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
+    - [Camera mount](https://github.com/wileyconnor/DeepPicar-Camp2026/blob/main/models/camera_mount.stl)  
+    - [Camera cover](https://github.com/wileyconnor/DeepPicar-Camp2026/blob/main/models/camera_cover.stl)  
 
 
 ## II. Construction
@@ -101,7 +101,7 @@ nav_order: 2
 </div>
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZYj04fSd8X0?si=gnulWbk-IZapVlMX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bbl7_tB5YOM?si=jRsMaA4_iVXmT8hb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </div>
 ## III. Software Setup
@@ -112,7 +112,7 @@ nav_order: 2
 > Clone the DeepPicar repository and install dependencies:
 >
 > ```bash
-> git clone --recurse-submodules --depth 1 https://github.com/CSL-KU/DeepPicar-v3
+> git clone --recurse-submodules --depth 1 -b proportional https://github.com/CSL-KU/DeepPicar-v3.git
 > cd DeepPicar-v3 
 > sudo apt update
 > sudo apt install libatlas-base-dev
@@ -165,14 +165,33 @@ nav_order: 2
 > $ sudo raspi-config
 > ```
 > Navigate to interface options, select legacy camera, and click on yes.
-> 
+
+> ## Manual control and Data collection
+
+> Before running the driving script run this command:
+
+>    $ sudo systemctl start pigpiod
+
+> Ensure that you only start pigpiod once
+
 > ### Start the control script
 > 
 > ```
 > $ cd DeepPicar-v3
-> $ sudo nice --20 python3 deeppicar.py -n 4 -f 30
+> $ sudo nice --20 python deeppicar.py -n 4 -f 30 -g -t 75
 > ```
-> 
+
+> Gamepad controls:  
+> Left stick: throttle  
+> Right stick: Steering  
+> Right bumper: Bias steering right  
+> Left bumper: Bias steering left  
+> Up D-pad: Add constant speed increase to DNN predicted throttle  
+> Down DPAD: Lower constant speed increase to DNN predicted throttle  
+> B: record  
+> Y: exit  
+> +: start DNN  
+
 > Keyboard controls:  
 > **A**: move forward   
 > **Z**: move backward  
@@ -199,13 +218,16 @@ nav_order: 2
 >     
 > Open the colab notebook. Following the notebook, you will upload the dataset to the colab, train the model, and download the model back to your PC. 
 > 
-> [Open In Colab](https://colab.research.google.com/drive/1sC2sLeO5HAbc5oXotxMGp0SUncoDP4AF?usp=sharing)
+> [Open In Colab](https://colab.research.google.com/drive/12IvrcxDrCyEZF8vLEgLj8qoY9x1fYv8y?usp=sharing)
 > 
 > After you are done training, you need to copy the trained tflite model file (`large-200x66x3.tflite` by default) to the Pi using scp commands.
 > 
 > ## Autonomous control
 > 
 > Copy the trained model to the DeepPicar. 
+>
+>    $ scp -r C:/Users/me/Downloads/large-200x66x3.tflite pi@pi-44.local:/home/pi/DeepPicar-v3/models
+> 
 > 
 > ```
 > $ cd DeepPicar-v3
