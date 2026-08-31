@@ -33,4 +33,4 @@ nav_order: 5
 ### 6. Car Not Driving Straight
 - **Calibration:** Use the bais adjustment system on the bottom of the car
 
-If you encounter other issues, consult the [DeepPiCar GitHub Issues page](https://github.com/your-repo/issues) or relevant forums for assistance.
+If you encounter other issues, consult the [DeepPiCar GitHub Issues page](https://github.com/CSL-KU/DeepPicar-v3/tree/proportional/issues) or relevant forums for assistance.

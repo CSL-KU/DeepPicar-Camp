@@ -11,72 +11,82 @@ nav_order: 2
 
 <div style="margin-left: 2em;">
   <table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Link</th>
-        <th>Price (USD)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Male to Female Jumper</strong></td>
-        <td><a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>MicroSD Card (32 GB)</strong></td>
-        <td><a href="https://www.amazon.com/dp/B07R8GVGN9/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>New Bright 1:24 Scale RC Car</strong></td>
-        <td><a href="https://www.walmart.com/ip/seort/5249297702">Link</a></td>
-        <td>$20</td>
-      </tr>
-      <tr>
-        <td><strong>Pololu DRV8835 Motor Driver</strong></td>
-        <td><a href="https://www.pololu.com/product/2753">Link</a></td>
-        <td>$15</td>
-      </tr>
-      <tr>
-        <td><strong>Pololu Power Cable</strong></td>
-        <td><a href="https://www.adafruit.com/product/4448">Link</a></td>
-        <td>$2</td>
-      </tr>
-      <tr>
-        <td><strong>Power Bank</strong></td>
-        <td><a href="https://www.amazon.com/INIU-Portable-High-Speed-Flashlight-Compatible/dp/B08MZG8TN8/">Link</a></td>
-        <td>$17</td>
-      </tr>
-      <tr>
-        <td><strong>Raspberry Pi Zero 2 W</strong></td>
-        <td><a href="https://www.amazon.com/Pi-Zero-WH-Quad-Core-Bluetooth/dp/B0DKKXS4RV/">Link</a></td>
-        <td>$25</td>
-      </tr>
-      <tr>
-        <td><strong>Raspberry Pi Zero Camera v1.3</strong></td>
-        <td><a href="https://www.amazon.com/Arducam-Megapixels-Sensor-OV5647-Raspberry/dp/B012V1HEP4/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>USB Micro to USB</strong></td>
-        <td><a href="https://www.amazon.com/Android-Compatible-Smartphones-Charging-Stations/dp/B095JZSHXQ/">Link</a></td>
-        <td>$7</td>
-      </tr>
-      <tr>
-        <td><strong>Total</strong></td>
-        <td></td>
-        <td><strong>$107</strong></td>
-      </tr>
-    </tbody>
-  </table>
+								<thead>
+									<tr>
+										<th>Component</th>
+										<th>Link</th>
+										<th>Price (USD)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>Male to Female Jumper</strong></td>
+										<td><a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/">Link</a></td>
+										<td>$7</td>
+									</tr>
+                                    <tr>
+										<td><strong>Female to Female Jumper</strong></td>
+										<td><a href="https://a.co/d/0fFAU4pG">Link</a></td>
+										<td>$4</td>
+									</tr>
+									<tr>
+										<td><strong>MicroSD Card (32 GB)</strong></td>
+										<td><a href="https://www.amazon.com/dp/B07R8GVGN9/">Link</a></td>
+										<td>$7</td>
+									</tr>
+									<tr>
+										<td><strong>1:28 Full-Proportional 4WD RC Drift Car</strong></td>
+										<td><a href="https://www.walmart.com/ip/1-28-Full-Proportional-4WD-RC-Drift-Car-LD2801with-130-Motor-LED-Lights-Proportional-Steering-Racing-Drift-Tires-20-30min-Battery-White-RC-Toy-Adults/18656268806?sid=766287ef-0fc4-4523-8a49-9afab143a47b">Link</a></td>
+										<td>$36</td>
+									</tr>
+									<tr>
+										<td><strong>Pololu DRV8835 Motor Driver</strong></td>
+										<td><a href="https://www.pololu.com/product/2753">Link</a></td>
+										<td>$15</td>
+									</tr>
+									<tr>
+										<td><strong>Pololu Power Cable</strong></td>
+										<td><a href="https://www.adafruit.com/product/4448">Link</a></td>
+										<td>$2</td>
+									</tr>
+									<tr>
+										<td><strong>Power Bank</strong></td>
+										<td><a href="https://www.walmart.com/ip/INIU-10000mAh-Power-Bank-Slimmest-15W-Portable-Charger-USB-C-in-Out-High-Speed-Charging-Battery-Pack-Compatible-with-iPhone-Samsung-Orange/1069567930?classType=VARIANT&athbdg=L1900&from=%2Fsearch&sid=6cbf919e-d290-476c-bbe9-e1fe69f5fbad">Link</a></td>
+										<td>$17</td>
+									</tr>
+									<tr>
+										<td><strong>Raspberry Pi Zero 2 W</strong></td>
+										<td><a href="https://www.microcenter.com/product/643085/raspberry-pi-zero-2-w">Link</a></td>
+										<td>$25</td>
+									</tr>
+									<tr>
+										<td><strong>Raspberry Pi Zero Camera v1.3</strong></td>
+										<td><a href="https://www.amazon.com/Arducam-Megapixels-Sensor-OV5647-Raspberry/dp/B012V1HEP4/">Link</a></td>
+										<td>$7</td>
+									</tr>
+									<tr>
+										<td><strong>USB Micro to USB</strong></td>
+										<td><a href="https://www.amazon.com/Android-Compatible-Smartphones-Charging-Stations/dp/B095JZSHXQ/">Link</a></td>
+										<td>$7</td>
+									</tr>
+                                    <tr>
+										<td><strong>Mini Breadboard</strong></td>
+										<td><a href="https://www.walmart.com/ip/Uxcell-6pcs-Mini-Breadboards-170-Tie-Point-Solderless-Breadboards-for-DIY-Electronics-kit/387198324?classType=REGULAR&from=%2Fsearch&sid=9d294529-828a-4e15-af70-be5ee501794e">Link</a></td>
+										<td>$11</td>
+									</tr>
+									<tr>
+										<td><strong>Total</strong></td>
+										<td></td>
+										<td><strong>$138</strong></td>
+									</tr>
+								</tbody>
+							</table>
 </div>
 - Additionally, you will need to 3D print these CAD models to mount the hardware to the car.  
-    - [Main hardware mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Main_hardware_mount.stl)  
-    - [Thread plate](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Threaded%20plate.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
-    - [Camera mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_mount.stl)  
-    - [Camera cover](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/Camera_cover.stl)  
+    - [Main hardware mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/2026_summer_camp_mount.stl)  
+    - [Front Mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/car_front_mount.stl) (NOTE: This thread plate is designed for m2.5 screws. Feel free to create other plates if you wish to use different screw types.)   
+    - [Camera mount](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/camera_mount.stl)  
+    - [Camera cover](https://github.com/CSL-KU/DeepPicar-Camp/blob/main/models/camera_cover.stl)  
 
 
 ## II. Construction
@@ -91,7 +101,7 @@ nav_order: 2
 </div>
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZYj04fSd8X0?si=gnulWbk-IZapVlMX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bbl7_tB5YOM?si=jRsMaA4_iVXmT8hb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </div>
 ## III. Software Setup
@@ -102,7 +112,7 @@ nav_order: 2
 > Clone the DeepPicar repository and install dependencies:
 >
 > ```bash
-> git clone --recurse-submodules --depth 1 https://github.com/CSL-KU/DeepPicar-v3
+> git clone --recurse-submodules --depth 1 -b proportional https://github.com/CSL-KU/DeepPicar-v3.git
 > cd DeepPicar-v3 
 > sudo apt update
 > sudo apt install libatlas-base-dev
@@ -155,14 +165,33 @@ nav_order: 2
 > $ sudo raspi-config
 > ```
 > Navigate to interface options, select legacy camera, and click on yes.
-> 
+
+## Manual control and Data collection
+
+> Before running the driving script run this command:
+> ```
+>    $ sudo systemctl start pigpiod
+> ```
+> Ensure that you only start pigpiod once
+
 > ### Start the control script
 > 
 > ```
 > $ cd DeepPicar-v3
-> $ sudo nice --20 python3 deeppicar.py -n 4 -f 30
+> $ sudo nice --20 python deeppicar.py -n 4 -f 30 -g -t 75
 > ```
-> 
+
+> Gamepad controls:  
+> Left stick: throttle  
+> Right stick: Steering  
+> Right bumper: Bias steering right  
+> Left bumper: Bias steering left  
+> Up D-pad: Add constant speed increase to DNN predicted throttle  
+> Down DPAD: Lower constant speed increase to DNN predicted throttle  
+> B: record  
+> Y: exit  
+> +: start DNN  
+
 > Keyboard controls:  
 > **A**: move forward   
 > **Z**: move backward  
@@ -189,13 +218,17 @@ nav_order: 2
 >     
 > Open the colab notebook. Following the notebook, you will upload the dataset to the colab, train the model, and download the model back to your PC. 
 > 
-> [Open In Colab](https://colab.research.google.com/drive/1sC2sLeO5HAbc5oXotxMGp0SUncoDP4AF?usp=sharing)
+> [Open In Colab](https://colab.research.google.com/drive/12IvrcxDrCyEZF8vLEgLj8qoY9x1fYv8y?usp=sharing)
 > 
 > After you are done training, you need to copy the trained tflite model file (`large-200x66x3.tflite` by default) to the Pi using scp commands.
 > 
 > ## Autonomous control
 > 
 > Copy the trained model to the DeepPicar. 
+> 
+> ```
+>    $ scp -r C:/Users/me/Downloads/large-200x66x3.tflite pi@pi-44.local:/home/pi/DeepPicar-v3/models
+> ```
 > 
 > ```
 > $ cd DeepPicar-v3
